@@ -60,4 +60,6 @@
 
 **Kafka и Zookeeper:** [src/kubernetes/kafka/kafka.yaml](src/kubernetes/kafka/kafka.yaml), [src/kubernetes/helm/templates/kafka/kafka.yaml](src/kubernetes/helm/templates/kafka/kafka.yaml)
 
-**Работа circuit breaker:** [stage5.png](stage5.png)
+**Без перегрузки, 1 соединение — все запросы проходят:** [stage5.png](stage5.png)
+
+**Работа circuit breaker, 50 параллельных соединений — 98 % запросов отсечено с 503:** [stage5_2.png](stage5_2.png)
