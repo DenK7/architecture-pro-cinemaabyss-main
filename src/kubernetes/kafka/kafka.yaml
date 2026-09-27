@@ -48,6 +48,7 @@ spec:
       containers:
       - name: zookeeper
         image: wurstmeister/zookeeper
+        command: ["sh", "-c", "ulimit -n 65536 && exec bash /usr/bin/start-zk.sh"]
         ports:
         - containerPort: 2181
           name: client
@@ -157,6 +158,8 @@ spec:
           value: "1"
         - name: KAFKA_LOG_DIRS
           value: "/kafka/kafka-logs"
+        - name: KAFKA_HEAP_OPTS
+          value: "-Xms512m -Xmx512m"
         volumeMounts:
         - name: kafka-data
           mountPath: /kafka
